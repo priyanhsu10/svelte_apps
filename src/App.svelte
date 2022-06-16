@@ -18,11 +18,15 @@
   //     color = e.target.value;
   //   };
   //   loops
+
   let people = [
     { name: "yoshi", beltColour: "black", age: 25, id: 1 },
     { name: "mario", beltColour: "orange", age: 45, id: 2 },
     { name: "luigi", beltColour: "brown", age: 35, id: 3 },
   ];
+  const handleClick = (id) => {
+    people = people.filter((x) => x.id != id);
+  };
 </script>
 
 <main>
@@ -39,6 +43,7 @@
     <div>
       <h4>{person.name}</h4>
       <p>{person.age} year old ,{person.beltColour}</p>
+      <button on:click={() => handleClick(person.id)}>delete</button>
     </div>
   {:else}
     <p>there is no data</p>
