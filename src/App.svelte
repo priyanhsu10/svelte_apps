@@ -1,8 +1,13 @@
 <script>
   import Model from "./Modal.svelte";
+  import AddPersonform from "./AddPersonform.svelte";
+  import Modal from "./Modal.svelte";
   let firstname = "priyanshu";
   let lastname = "parate";
   let showModel = false;
+  let toggle = false;
+  let color = "black";
+  const togle = () => (showModel = !showModel);
   $: fullname = `${firstname}  ${lastname}`;
   $: {
     console.log(firstname);
@@ -32,22 +37,33 @@
 </script>
 
 <main class="main">
-  <button on:click={() => (showModel = !showModel)}>show </button>
-  <Model message="hi this message form message" list={people} {showModel} />
-  <h1>Hello {fullname}</h1>
-  first name
-  <input type="text" bind:value={firstname} />
-  last name
-  <input type="text" bind:value={lastname} />
+  <button on:click={togle}>show </button>
+  <h4>Hello {fullname}</h4>
 
-  <button on:click={handleClick}>change</button>
+  <!-- <Model
+    message="hi this message form message"
+    list={people}
+    {showModel}
+    {togle}
+  >
+    <h4>add new person</h4>
+    first name
+    <input type="text" bind:value={firstname} />
+    last name
+    <input type="text" bind:value={lastname} />
+
+    <button on:click={handleClick}>change</button>
+  </Model> -->
+  <Model {showModel}>
+    <AddPersonform />
+  </Model>
   <!-- <input type="text" on:input={handleInput} value={color} /> -->
 
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
       <p>{person.age} year old ,{person.beltColour}</p>
-      <button on:click={() => handleClick(person.id)}>delete</button>
+      <button on:click={() => handleClick1(person.id)}>delete</button>
     </div>
   {:else}
     <p>there is no data</p>

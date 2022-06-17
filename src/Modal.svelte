@@ -1,6 +1,12 @@
 <script>
   export let message;
   export let list = [];
+  const localtogle = () => {
+    console.log("togel called");
+    console.log(typeof togle);
+    togle();
+  };
+  export let togle;
   export let showModel = false;
   let ispromo = false;
 </script>
@@ -8,13 +14,15 @@
 {#if showModel}
   <div class="backdrop" class:promo={ispromo}>
     <div class="model">
-      <p>Sign upd for the offer</p>
+      <!-- <p>Sign upd for the offer</p>
       <p>{message}</p>
       <ul>
         {#each list as item (item.id)}
           <li>{item.name} ,{item.age}</li>
         {/each}
-      </ul>
+      </ul> -->
+      <slot />
+      <!-- <button on:click={localtogle}> close</button> -->
     </div>
   </div>
 {/if}
@@ -30,7 +38,7 @@
     background: white;
     width: 400px;
     margin: 10% auto;
-    height: 200px;
+    height: auto;
     text-align: center;
     border-radius: 1rem;
   }
