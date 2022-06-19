@@ -2,6 +2,7 @@
   import Model from "./Modal.svelte";
   import AddPersonform from "./AddPersonform.svelte";
   import Modal from "./Modal.svelte";
+  import Todo from "./Todo.svelte";
   let firstname = "priyanshu";
   let lastname = "parate";
   let showModel = false;
@@ -39,7 +40,7 @@
 <main class="main">
   <button on:click={togle}>show </button>
   <h4>Hello {fullname}</h4>
-
+  <Todo />
   <!-- <Model
     message="hi this message form message"
     list={people}
@@ -54,12 +55,12 @@
 
     <button on:click={handleClick}>change</button>
   </Model> -->
-  <Model {showModel}>
+  <!-- <Model {showModel}>
     <AddPersonform />
-  </Model>
+  </Model> -->
   <!-- <input type="text" on:input={handleInput} value={color} /> -->
 
-  {#each people as person (person.id)}
+  <!-- {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
       <p>{person.age} year old ,{person.beltColour}</p>
@@ -77,7 +78,7 @@
     <p>greater than 5</p>
   {:else}
     <p>Not greater than 5</p>
-  {/if}
+  {/if} -->
 </main>
 
 <style>
